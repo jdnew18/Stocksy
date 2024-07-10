@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS Stock
+(
+    Id INT NOT NULL,
+    TickerSymbol VARCHAR(4) NOT NULL,
+    CompanyName VARCHAR(100) NOT NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id)
+);
+
+CREATE TABLE IF NOT EXISTS Quote
+(
+    Id INT NOT NULL,
+    StockId INT NOT NULL,
+    Value NUMERIC NOT NULL,
+    CreatedDate  DATETIME2 NOT NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id),
+    CONSTRAINT FK_QUOTE_STOCK_ID FOREIGN KEY (Id)
+    REFERENCES Stock (Id)
+);
+
+.save StockDatabase.db
+
+.tables
+
+.schema
