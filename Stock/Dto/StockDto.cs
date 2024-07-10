@@ -6,7 +6,5 @@ namespace Stocksy.Stock.Dto
         public required string TickerSymbol  { get; set; }
         
         public required string CompanyName { get; set; }
-
-        public QuoteDto? CurrentQuote { get; set; }
     }
 }
