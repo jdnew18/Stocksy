@@ -6,8 +6,6 @@ namespace Stocksy.Account.Dto {
 
         public int UserId { get; set; }
 
-        public List<int>? PortfolioIds { get; set; }
-
         public DateTime CreatedDate { get; set;}
 
         public DateTime? UpdatedDate { get; set;}
