@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS User
+(
+    Id INT NOT NULL,
+    CreatedDate  DATETIME2 NOT NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id)
+);
+
+CREATE TABLE IF NOT EXISTS Account
+(
+    Id INT NOT NULL,
+    UserId INT NOT NULL,
+    AccountType INT NOT NULL,
+    Amount NUMERIC NOT NULL,
+    CreatedDate  DATETIME2 NOT NULL,
+    UpdatedDate  DATETIME2 NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id),
+    CONSTRAINT FK_ACCOUNT_USER_ID FOREIGN KEY (Id)
+    REFERENCES User (Id)
+);
+
+.save AccountDatabase.db
+
+.tables
+
+.schema
