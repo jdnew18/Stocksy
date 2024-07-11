@@ -1,0 +1,34 @@
+CREATE TABLE IF NOT EXISTS Account
+(
+    Id INT NOT NULL,
+    CreatedDate  DATETIME2 NOT NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id)
+);
+
+CREATE TABLE IF NOT EXISTS Portfolio
+(
+    Id INT NOT NULL,
+    AccountId INT NOT NULL,
+    CreatedDate  DATETIME2 NOT NULL,
+    UpdatedDate  DATETIME2 NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id),
+    CONSTRAINT FK_PORTFOLIO_ACCOUNT_ID FOREIGN KEY (Id)
+    REFERENCES Account (Id)
+);
+
+CREATE TABLE IF NOT EXISTS Stock
+(
+    Id INT NOT NULL,
+    PortfolioId INT NOT NULL,
+    Price NUMERIC NOT NULL,
+    CreatedDate  DATETIME2 NOT NULL,
+    CONSTRAINT PK_ID PRIMARY KEY (Id),
+    CONSTRAINT FK_STOCK_PORTFOLIO_ID FOREIGN KEY (Id)
+    REFERENCES Portfolio (Id)
+);
+
+.save PortfolioDatabase.db
+
+.tables
+
+.schema
