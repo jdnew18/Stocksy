@@ -1,3 +1,6 @@
 *.db
+*.csv
+*.tsv
+*.numbers
 bin/
 obj/
