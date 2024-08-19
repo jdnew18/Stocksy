@@ -1,5 +1,5 @@
-namespace Stocksy.Stock.Dto {
-    public class QuoteDto {
+namespace Stocksy.Stock.ViewModels {
+    public class QuoteVM {
         public int Id { get; set;}
 
         public int StockId { get; set;}

@@ -1,6 +1,6 @@
-namespace Stocksy.Stock.Dto
+namespace Stocksy.Stock.ViewModels
 {
-    public class StockDto {
+    public class StockVM {
         public int Id { get; set; }
 
         public required string TickerSymbol  { get; set; }
