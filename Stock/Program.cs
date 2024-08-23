@@ -10,6 +10,17 @@ builder.Services.AddDbContext<StockDbContext>(options => {
     options.UseSqlite(StockDbContext.connectionString);
 });
 
+// Use cross origin support.
+const string corsPolicy = "FrontEndApp";
+const string frontEndOrigin = "http://localhost:4200";
+builder.Services.AddCors(opts => opts.AddPolicy(corsPolicy,
+                            policy => 
+                            {
+                                policy.WithOrigins(frontEndOrigin);
+                                policy.AllowAnyHeader();
+                                policy.AllowAnyMethod();
+                            }));
+
 builder.Services.AddControllers();
 
 // Add services to the container.
@@ -30,6 +41,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(corsPolicy);
+
 app.MapControllers();
 
 app.UseDefaultFiles();
@@ -37,7 +50,7 @@ app.UseStaticFiles();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+// record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+// {
+//     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+// }

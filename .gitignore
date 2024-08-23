@@ -4,3 +4,6 @@
 *.numbers
 bin/
 obj/
+.angular/
+idx/
+node_modules/

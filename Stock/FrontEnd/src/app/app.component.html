@@ -1,0 +1,10 @@
+<h1>Hello world!</h1>
+<h2>Webmaster: {{webmasterName}}</h2>
+<h3>subj$: {{(pageStatusSubj$ | async) ?? 'Loading...'}}</h3>
+@for (datum of data; track datum) {
+    @if (datum.tickerSymbol != '' || datum.companyName != ''){
+        <h4>Id: {{datum.id}}</h4>
+        <h4>Ticker: {{datum.tickerSymbol}}</h4>
+        <h4>Company: {{datum.companyName}}</h4>
+    }
+}
